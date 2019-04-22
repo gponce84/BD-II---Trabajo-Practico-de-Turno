@@ -44,12 +44,12 @@ END
 GO
 
 --ALTA HORARIOS RECURRENTE
-ALTER PROCEDURE altaHorariosRecurrentes
+CREATE PROCEDURE altaHorariosRecurrentes
 	(@esServicio bit,
 	 @esProfecional bit,
 	 @turno  varchar(4),
-	 @fechaHorarioInicio time,
-	 @fechaHorarioFin time,
+	 @fechaHorarioInicio datetime,
+	 @fechaHorarioFin datetime,
 	 @recurrencia varchar(10)
 	)
 AS
