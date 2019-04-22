@@ -4,7 +4,7 @@ idServicioProfecional int not null identity (1,1),
 esServicio bit,
 esProfecional bit,
 turno varchar(4),
-fechaHorarioInicio time,
-fechaHorarioFin	time,
+fechaHorarioInicio datetime,
+fechaHorarioFin	datetime,
 recurrencia varchar(10)
 )
