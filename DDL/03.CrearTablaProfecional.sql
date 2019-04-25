@@ -1,6 +1,6 @@
 ---ABM PROFECIONAL
-CREATE TABLE Profecional(
-idProfecional int not null identity(1,1),
+CREATE TABLE Profesional(
+idProfesional int not null identity(1,1),
 nombre varchar(50),
 apellido varchar (50),
 direccion varchar(50),
