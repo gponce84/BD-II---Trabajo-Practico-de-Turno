@@ -10,8 +10,8 @@ BEGIN
 END
 GO
 
---ALTA DE PROFECIONAL
-CREATE PROCEDURE altaProfecional
+--ALTA DE PROFESIONAL
+CREATE PROCEDURE altaProfesional
 	(@nombre varchar(50),
 	 @apellido varchar (50),
 	 @direccion varchar(50),
@@ -20,9 +20,9 @@ CREATE PROCEDURE altaProfecional
 	)
 AS
 BEGIN
-	INSERT INTO Profecional (nombre,apellido,direccion,telefono,email,activo)
+	INSERT INTO Profesional (nombre,apellido,direccion,telefono,email,activo)
 	VALUES (@nombre,@apellido,@direccion,@telefono,@email,1)
-	PRINT 'Se dio de alta correctamente el Profecional'+' '+@nombre+' '+@apellido
+	PRINT 'Se dio de alta correctamente el Profesional'+' '+@nombre+' '+@apellido
 END
 
 GO
@@ -46,7 +46,7 @@ GO
 --ALTA HORARIOS RECURRENTE
 CREATE PROCEDURE altaHorariosRecurrentes
 	(@esServicio bit,
-	 @esProfecional bit,
+	 @esProfesional bit,
 	 @turno  varchar(4),
 	 @fechaHorarioInicio datetime,
 	 @fechaHorarioFin datetime,
@@ -54,22 +54,22 @@ CREATE PROCEDURE altaHorariosRecurrentes
 	)
 AS
 BEGIN
-	INSERT INTO HorariosDisponibles (esServicio,esProfecional,turno,fechaHorarioInicio,fechaHorarioFin,recurrencia)
-	values(@esServicio,@esProfecional,@turno,@fechaHorarioInicio,@fechaHorarioFin,@recurrencia)
+	INSERT INTO HorariosDisponibles (esServicio,esProfesional,turno,fechaHorarioInicio,fechaHorarioFin,recurrencia)
+	values(@esServicio,@esProfesional,@turno,@fechaHorarioInicio,@fechaHorarioFin,@recurrencia)
 	IF (@esServicio = 1 AND @recurrencia = 'BAJA')
 	BEGIN
-		PRINT 'Se a insertado correctamente Horarios Disponible Del Servicio'
+		PRINT 'Se ha insertado correctamente Horarios Disponible Del Servicio'
 	END
-	IF (@esProfecional = 1 AND @recurrencia = 'BAJA')
+	IF (@esProfesional = 1 AND @recurrencia = 'BAJA')
 	BEGIN
-		PRINT 'Se a insertado correctamente Horarios Disponible Del Profecional'
+		PRINT 'Se ha insertado correctamente Horarios Disponible Del Profesional'
 	END
 	IF (@esServicio = 1 AND @recurrencia = 'ALTA')
 	BEGIN
-		PRINT 'Se a insertado correctamente Horarios Disponible Del Servicio,  Recurrencial' +' '+@recurrencia
+		PRINT 'Se ha insertado correctamente Horarios Disponible Del Servicio,  Recurrencial' +' '+@recurrencia
 	END
-	IF (@esProfecional = 1 AND @recurrencia = 'ALTA')
+	IF (@esProfesional = 1 AND @recurrencia = 'ALTA')
 	BEGIN
-		PRINT 'Se a insertado correctamente Horarios Disponible Del Profecional, Recurrencial' +' '+@recurrencia
+		PRINT 'Se ha insertado correctamente Horarios Disponible Del Profesional, Recurrencial' +' '+@recurrencia
 	END
 END
