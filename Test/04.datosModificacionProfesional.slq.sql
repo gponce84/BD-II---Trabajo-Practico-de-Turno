@@ -1,4 +1,4 @@
-------MODIFICACION DE PROFECIONAL  --------
+------MODIFICACION DE PROFESIONAL  --------
 go
 DECLARE @id int,
 		@nuevo_nombre varchar(50),
@@ -7,7 +7,7 @@ DECLARE @id int,
 		@nuevo_telefono varchar(50),
 		@nuevo_email varchar(50)
 
-EXEC modificacionProfecional @id = 2,@nuevo_nombre= null, @nuevo_apellido = null,
+EXEC modificacionProfesional @id = 2,@nuevo_nombre= null, @nuevo_apellido = null,
 		@nueva_direccion = NULL ,
 		@nuevo_telefono = NULL,
 		@nuevo_email = 'nuevo@email.com'
