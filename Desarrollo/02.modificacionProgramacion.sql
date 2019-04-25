@@ -15,7 +15,7 @@ GO
 
 --UPDATE PROFECIONAL
 GO
-CREATE PROCEDURE modificacionProfecional
+CREATE PROCEDURE modificacionProfesional
 	(@id int,
 	 @nuevo_nombre varchar(50),
 	 @nuevo_apellido varchar (50),
@@ -25,11 +25,11 @@ CREATE PROCEDURE modificacionProfecional
 	)
 AS
 BEGIN
-	UPDATE Profecional 
-	SET nombre = ISNULL(@nuevo_nombre, Profecional.nombre), 
-		apellido = ISNULL(@nuevo_apellido, Profecional.apellido),
-		direccion = ISNULL(@nueva_direccion, Profecional.direccion), 
-		email= ISNULL(@nuevo_email, Profecional.email)
-	WHERE idProfecional = @id
-	PRINT 'Se modificio correctamente el Profecional'
+	UPDATE Profesional 
+	SET nombre = ISNULL(@nuevo_nombre, Profesional.nombre), 
+		apellido = ISNULL(@nuevo_apellido, Profesional.apellido),
+		direccion = ISNULL(@nueva_direccion, Profesional.direccion), 
+		email= ISNULL(@nuevo_email, Profesional.email)
+	WHERE idProfesional = @id
+	PRINT 'Se modificio correctamente el Profesional'
 END
