@@ -3,7 +3,9 @@ CREATE PROCEDURE bajaServicio
 	(@id int)
 AS
 BEGIN
-	IF (SELECT activo FROM Servicio WHERE idServicio = @id) = 1
+	Declare @activo bit
+	select @activo=activo from servicio where idServicio=@id
+	IF  (@activo = 1)
 		BEGIN
 			UPDATE Servicio
 			SET activo = 0
@@ -25,7 +27,9 @@ CREATE PROCEDURE bajaProfesional
 	(@id int)
 AS
 BEGIN
-	IF (SELECT activo FROM Profesional WHERE idProfesional = @id) = 1
+	Declare @activo bit
+	select @activo=activo from Profesional where idProfesional=@id
+	IF  (@activo = 1)
 		BEGIN
 			UPDATE Profesional
 			SET activo = 0
