@@ -19,24 +19,24 @@ BEGIN
 		END
 END
 GO
---ALTA Y BAJA LOGICA DEL PROFECIONAL - 1 ACTIVO - 0 INACTIVO
+--ALTA Y BAJA LOGICA DEL PROFESIONAL - 1 ACTIVO - 0 INACTIVO
 
-CREATE PROCEDURE bajaProfecional
+CREATE PROCEDURE bajaProfesional
 	(@id int)
 AS
 BEGIN
-	IF (SELECT activo FROM Profecional WHERE idProfecional = @id) = 1
+	IF (SELECT activo FROM Profesional WHERE idProfesional = @id) = 1
 		BEGIN
-			UPDATE Profecional
+			UPDATE Profesional
 			SET activo = 0
-			WHERE idProfecional = @id
-			PRINT 'Profecional dado de Baja'
+			WHERE idProfesional = @id
+			PRINT 'Profesional dado de Baja'
 		END
 	ELSE
 		BEGIN
-			UPDATE Profecional
+			UPDATE Profesional
 			SET activo = 1
-			WHERE idProfecional = @id
-			PRINT 'Profecional dado de Alta'
+			WHERE idProfesional = @id
+			PRINT 'Profesional dado de Alta'
 		END
 END
